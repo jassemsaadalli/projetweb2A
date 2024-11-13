@@ -1,0 +1,92 @@
+/* Style pour la mise en page globale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Container du formulaire avec flexbox */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Chaque champ (Nom, Email, Lien) aligné sur une seule ligne */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 32%; /* Laisser de la place pour les trois champs */
+    flex-grow: 1; /* Laissez chaque champ croître pour occuper l'espace */
+}
+
+.form-row label {
+    width: 40%; /* Largeur du label */
+    margin-right: 10px;
+    text-align: right;
+}
+
+.form-row input {
+    width: 100%; /* L'input occupe tout l'espace restant */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Bouton d'envoi */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Ajustement pour les petites tailles d'écran */
+@media (max-width: 768px) {
+    .form-row {
+        width: 100%; /* Prendre 100% de la largeur sur petits écrans */
+        margin-bottom: 20px;
+    }
+
+    .form-container {
+        flex-direction: column;
+    }
+
+    .form-row label,
+    .form-row input {
+        width: 100%; /* Labels et inputs prennent toute la largeur */
+    }
+
+    .submit-btn {
+        width: 100%; /* Le bouton d'envoi prend aussi toute la largeur */
+    }
+}

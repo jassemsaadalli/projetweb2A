@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+    <link rel="stylesheet" href="stylish.css">
+</head>
+<body>
+
+    <h1>Votre Panier</h1>
+
+    <div class="cart">
+        <table>
+            <tr>
+                <th>ID du produit</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td id="product-id"></td>
+                <td id="product-name"></td>
+                <td id="product-price"></td>
+                <td>
+                    <input type="number" id="product-quantity" value="1" min="1" onchange="updateTotal()">
+                </td>
+                <td id="product-total"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Récupère les détails du produit depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const name = urlParams.get('name');
+        const price = parseFloat(urlParams.get('price'));
+        const quantity = parseInt(urlParams.get('quantity'));
+
+        // Affiche les informations du produit dans le tableau
+        document.getElementById('product-id').innerText = id;
+        document.getElementById('product-name').innerText = name;
+        document.getElementById('product-price').innerText = price + " €";
+        document.getElementById('product-quantity').value = quantity;
+        document.getElementById('product-total').innerText = (price * quantity) + " €";
+
+        // Met à jour le total lors du changement de la quantité
+        function updateTotal() {
+            const newQuantity = document.getElementById('product-quantity').value;
+            document.getElementById('product-total').innerText = (price * newQuantity) + " €";
+        }
+    </script>
+
+</body>
+</html>
