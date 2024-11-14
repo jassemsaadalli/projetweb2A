@@ -1,0 +1,110 @@
+/* Style de base */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e5a544d8;
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Style des offres */
+.offer {
+    width: 300px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Animation au survol de l'offre */
+.offer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur de l'image */
+.offer-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation de l'image au survol */
+.offer-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.offer:hover .offer-image {
+    transform: scale(1.1);
+}
+
+/* Titre de l'offre */
+.offer-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #34495e;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+/* Changer la couleur du titre au survol */
+.offer:hover .offer-title {
+    color: #27ae60; /* Vert pour l'effet de survol */
+}
+
+/* Description de l'offre */
+.offer p {
+    color: #7f8c8d;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Positionner les slogans sous la description */
+.slogan {
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+}
+
+/* Slogan spécifique pour chaque offre avec des couleurs différentes */
+.offer:nth-child(1) .slogan {
+    background-color: rgba(39, 174, 96, 0.7); /* Vert pour l'offre nutrition */
+}
+
+.offer:nth-child(2) .slogan {
+    background-color: rgba(231, 76, 60, 0.7); /* Rouge pour l'offre esthétique */
+}
+
+.offer:nth-child(3) .slogan {
+    background-color: rgba(41, 128, 185, 0.7); /* Bleu pour l'offre formation */
+}
+
+/* Style général des liens */
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,143 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Chargement de la police depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Corps de la page */
+body {
+    font-family: 'Poppins', sans-serif; /* Utilisation de la police Poppins */
+    background-color: #e5a544d8;
+    color: #333; /* Le texte principal en noir */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* En-tête */
+header {
+    text-align: center;
+    padding: 30px;
+    background-color: #d4f1d4; /* Vert clair pour l'en-tête */
+    color: #2c6b2f; /* Vert foncé pour le texte de l'en-tête */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-out; /* Animation d'apparition de l'en-tête */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+/* Animation fadeIn */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Main content */
+main {
+    margin-top: 20px;
+}
+
+/* Catégorie d'offres */
+.offer-category {
+    margin-bottom: 40px;
+}
+
+/* Animation de la catégorie */
+.offer-category h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #2c6b2f; /* Vert foncé pour le titre de la catégorie */
+    margin-bottom: 20px;
+    animation: slideUp 1s ease-out;
+}
+
+/* Animation slideUp */
+@keyframes slideUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Offres */
+.offer {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeInOffer 1.5s ease-out forwards;
+}
+
+/* Animation fadeInOffer */
+@keyframes fadeInOffer {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.offer img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.offer img:hover {
+    transform: scale(1.1); /* Animation de zoom de l'image au survol */
+}
+
+.offer-details {
+    flex: 1;
+}
+
+.offer-details h3 {
+    font-size: 1.5em;
+    color: #2c6b2f; /* Vert foncé pour le titre des offres */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.offer-details p {
+    font-size: 1.1em;
+    color: #333; /* Le texte des offres reste noir */
+}
+
+.offer-details h3:hover {
+    color: #4caf50; /* Vert vif au survol du titre */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #d4f1d4; /* Vert clair pour le footer */
+    color: #2c6b2f; /* Vert foncé pour le texte du footer */
+    font-size: 1.1em;
+    margin-top: 40px;
+    animation: fadeInFooter 2s ease-out;
+}
+
+/* Animation fadeInFooter */
+@keyframes fadeInFooter {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Petit effet au survol du footer */
+footer:hover {
+    background-color: #a8d8a8; /* Changement de la couleur de fond au survol */
+}
