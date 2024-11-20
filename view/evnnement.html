@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements</title>
+    <link rel="stylesheet" href="../view/evennement.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Nos Événements</h1>
+
+        <!-- Événement 1 : Journées Portes Ouvertes -->
+        <div class="event">
+            <h2>Journée Portes Ouvertes</h2>
+            <p>Une journée où chaque fournisseur présente ses produits ou services aux clients.</p>
+            <a href="addform.php">Participer</a>
+        </div>
+        <!-- Événement 2 : Questions-Réponses en Direct -->
+        <div class="event">
+            <h2>Questions-Réponses en Direct</h2>
+            <p>Organisez des sessions Q&R en live avec des experts agricoles, marketing ou beauté.</p>
+            <a href="addform1.php">Rejoindre</a>
+        </div>
+    </div>
+
+    <!-- Formulaire de participation -->
+    <div class="form-popup" id="form-popup">
+        <form class="form-container">
+            <h2>Formulaire de Participation</h2>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" required>
+            <label for="surname">Prénom:</label>
+            <input type="text" id="surname" required>
+            <label for="age">Âge:</label>
+            <input type="number" id="age" required>
+            <label for="phone">Numéro de Téléphone:</label>
+            <input type="tel" id="phone" required>
+            <button type="submit">Soumettre</button>
+            <button type="button" class="btn-cancel" onclick="closeForm()">Annuler</button>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById('form-popup').style.display = 'flex';
+        }
+        function closeForm() {
+            document.getElementById('form-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
