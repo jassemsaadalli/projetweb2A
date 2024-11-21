@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        
+        .sidebar {
+            height: 100%;
+            width: 18vw;
+            background-color: #4CAF50;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: 0.3s;
+            padding-top: 65px;
+            display: flex;
+            flex-direction: column;
+            padding-left: 15px;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+      
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            width: 70%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #3e7252;
+        }
+
+        
+        .main-content {
+            margin-left: 0;
+            padding: 30px;
+            width: 100%;
+            transition: margin-left 0.3s;
+        }
+
+        .main-content.open {
+            margin-left: 250px;
+        }
+
+        .main-content h1 {
+            color: #4CAF50;
+        }
+
+        .dashboard-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .dashboard-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .dashboard-section ul li {
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-section ul li button {
+            padding: 5px 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dashboard-section ul li button:hover {
+            background-color: #e60000;
+        }
+
+        /* Toggle Visibility */
+        .dashboard-section.active {
+            display: block;
+        }
+
+        /* Button to toggle sidebar */
+        .open-dashboard-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #386f4d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            width: 65px;
+            margin: 10px;
+            height: 50px;
+            z-index: 999;
+        }
+
+        .open-dashboard-btn:hover {
+            background-color: #5dde59;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button to toggle sidebar -->
+    <button onclick="toggleSidebar()" class="open-dashboard-btn">
+        ☰
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+       
+        <a href="#" onclick="showSection('users')">Users</a>
+        <a href="#" onclick="showSection('products')">Products</a>
+        <a href="#" >Articles</a>
+        <a href="#" >Messages</a>
+
+        <a href="#">Log Out</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <h1>Welcome to Your Dashboard</h1>
+
+        <!-- Display Lists of Users and Products -->
+        <div class="dashboard-section" id="usersSection">
+            <h3>All Users</h3>
+            <ul>
+                <li>
+                    John Doe
+                    <div>
+                        <button>Delete</button>
+                        <button>Update</button>
+                    </div>
+                </li>
+                <li>
+                    Jane Smith
+                    <div>
+                        <button>Delete</button>
+                        <button>Update</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dashboard-section" id="productsSection">
+            <h3>All Products</h3>
+            <ul>
+                <li>
+                    Product A - $50
+                    <div>
+                        <button>Delete</button>
+                        <button>Update</button>
+                    </div>
+                </li>
+                <li>
+                    Product B - $80
+                    <div>
+                        <button>Delete</button>
+                        <button>Update</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('open');
+            mainContent.classList.toggle('open');
+        }
+
+        // Show section (Users or Products)
+        function showSection(section) {
+            document.getElementById('usersSection').classList.remove('active');
+            document.getElementById('productsSection').classList.remove('active');
+            if (section === 'users') {
+                document.getElementById('usersSection').classList.add('active');
+            } else if (section === 'products') {
+                document.getElementById('productsSection').classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

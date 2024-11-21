@@ -8,34 +8,89 @@
     <script>
         function addToCart(id, name, price) {
             // Redirige vers la page du panier avec les détails du produit en URL
-            window.location.href = `panier.html?id=${id}&name=${name}&price=${price}&quantity=1`;
+            window.location.href = `panierr.html?id=${id}&name=${name}&price=${price}&quantity=1`;
         }
     </script>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <!-- Barre supérieure -->
+        <div class="top-bar">
+            <p>LIVRAISON OFFERTE À PARTIR DE 75 € D'ACHAT.</p>
+        </div>
+        <div class="container header-content">
+            <h1 class="logo">🌿 BioVerte</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="acceuil.html">Acceuil</a></li>
+                    <li><a href="produit.html">Produit</a></li>
+                    <li><a href="#">Événement </a></li>
+                    <li><a href="reclamation.html">Réclamation</a></li>
+                    <li><a href="#">Formation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <h1>Produits</h1>
+    <!-- Section Produits -->
+    <main>
+        <h1>Produits</h1>
 
-    <div class="product">
-        <img src="image/huile.webp" alt="Produit 1" class="product-image">
-        <h2>Produit 1</h2>
-        <p>Description du produit 1. Ce produit est très populaire et de bonne qualité.</p>
-        <button onclick="addToCart(1, 'Produit 1', 20)">Ajouter au panier</button>
-    </div>
+        <div class="product">
+            <img src="huile.webp" alt="Produit 1" class="product-image">
+            <h2>Produit 1</h2>
+            <p>info du produit:quantité:15 ; prix:50 TND.</p>
+            <button onclick="addToCart(1, 'Produit 1', 20)">Ajouter au panier</button>
+        </div>
 
-    <div class="product">
-        <img src="Downloads\huile.webp" alt="Produit 2" class="product-image">
-        <h2>Produit 2</h2>
-        <p>Description du produit 2. Ce produit est idéal pour les amateurs de qualité.</p>
-        <button onclick="addToCart(2, 'Produit 2', 30)">Ajouter au panier</button>
-    </div>
+        <div class="product">
+            <img src="parfum.jpg" alt="Produit 2" class="product-image">
+            <h2>Produit 2</h2>
+            <p>info du produit:quantité:155 ; prix:200 TND.</p>
+            <button onclick="addToCart(2, 'Produit 2', 30)">Ajouter au panier</button>
+        </div>
 
-    <div class="product">
-        <img src="image3.jpg" alt="Produit 3" class="product-image">
-        <h2>Produit 3</h2>
-        <p>Description du produit 3. Découvrez ses fonctionnalités exceptionnelles.</p>
-        <button onclick="addToCart(3, 'Produit 3', 25)">Ajouter au panier</button>
-    </div>
+        <div class="product">
+            <img src="avocado.jpg" alt="Produit 3" class="product-image">
+            <h2>Produit 3</h2>
+            <p>info du produit:quantité:62 ; prix:37 TND.</p>
+            <button onclick="addToCart(3, 'Produit 3', 25)">Ajouter au panier</button>
+        </div>
+    </main>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Termes et conditions</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Politique de livraison</a></li>
+                <li><a href="#">Politique de remboursement</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Politique de cookies</a></li>
+                <li><a href="#">Mentions légales</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Moyens de paiement</a></li>
+            </ul>
+            <ul>
+                <li><strong>Adresse :</strong></li>
+                <li>47 rue des Couronnes,</li>
+                <li>75020 Paris, France</li>
+            </ul>
+            <ul>
+                <li><strong>Contact :</strong></li>
+                <li>info@monsite.fr</li>
+                <li>01 23 45 67 89</li>
+            </ul>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="f.jpg" alt="Facebook"></a>
+            <a href="#"><img src="i.jpg" alt="Instagram"></a>
+            <a href="#"><img src="tk.jpg" alt="TikTok"></a>
+        </div>
+        <p>© 2035 par BioVerte.</p>
+    </footer>
 </body>
 </html>
