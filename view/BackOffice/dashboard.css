@@ -1,0 +1,239 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 18vw;
+    background-color: #4CAF50;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: 0.3s;
+    padding-top: 65px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 70%;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #3e7252;
+}
+
+
+.main-content {
+    margin-left: 0;
+    padding: 30px;
+    width: 100%;
+    transition: margin-left 0.3s;
+}
+
+.main-content.open {
+    margin-left: 250px;
+}
+
+.main-content h1 {
+    color: #4CAF50;
+}
+
+.dashboard-section {
+    display: none;
+    margin-top: 30px;
+}
+
+.dashboard-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.dashboard-section ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-section ul li button {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboard-section ul li button:hover {
+    background-color: #e60000;
+}
+
+/* Toggle Visibility */
+.dashboard-section.active {
+    display: block;
+}
+
+/* Button to toggle sidebar */
+.open-dashboard-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #386f4d;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    width: 65px;
+    margin: 10px;
+    height: 50px;
+    z-index: 999;
+}
+
+.open-dashboard-btn:hover {
+    background-color: #5dde59;
+}
+
+.dashboard-section table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-section table thead {
+background-color: #4CAF50; /* Vert pour l'en-tête */
+color: white;
+text-align: left;
+}
+
+.dashboard-section table th,
+.dashboard-section table td {
+padding: 15px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+.dashboard-section table tbody tr:hover {
+background-color: #f1f1f1;
+}
+
+.dashboard-section table td {
+vertical-align: middle;
+}
+
+.dashboard-section table td a {
+display: inline-block;
+margin-right: 10px; /* Espacement entre les boutons */
+padding: 8px 15px;
+text-decoration: none;
+color: white;
+background-color: #ff4d4d; /* Rouge pour les boutons */
+border-radius: 5px;
+transition: background-color 0.3s;
+}
+
+.dashboard-section table td a:hover {
+background-color: #e60000;
+}
+
+.dashboard-section .add-event-btn {
+display: inline-block;
+margin-top: 15px;
+padding: 10px 20px;
+background-color: #007BFF; /* Bleu pour le bouton "Ajouter un événement" */
+color: white;
+text-decoration: none;
+border-radius: 5px;
+font-weight: bold;
+transition: background-color 0.3s;
+}
+
+.dashboard-section .add-event-btn:hover {
+background-color: #0056b3;
+}
+
+.dashboard-section h3 {
+margin-bottom: 20px; /* Espacement sous le titre */
+color: #4CAF50; /* Vert pour les titres */
+font-size: 24px;
+font-weight: bold;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Rounded corners */
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover and Focus Effects */
+.search-bar:hover {
+    border-color: #5a9; /* Soft green border on hover */
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2); /* Slightly darker shadow */
+}
+
+.search-bar:focus {
+    border-color: #37b24d; /* Bright green border */
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3); /* Stronger shadow */
+}
+
+/* Placeholder Text Styling */
+.search-bar::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Smooth Transition */
+.search-bar:focus::placeholder {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+#sortButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+#sortButton:hover {
+    background-color: #45a049;
+}
+
+
+
+
+

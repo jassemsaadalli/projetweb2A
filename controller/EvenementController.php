@@ -1,14 +1,13 @@
 <?php
-include(__DIR__ . '/../config.php');
 include(__DIR__ . '/../model/evennement.php');
 
 class EvenementController
 {
-    public function getEventById($id)
+    public static function getEventById($id)
     {
         $db = config::getConnection();
 
-        $sql = "SELECT * FROM evenements WHERE id = :id";
+        $sql = "SELECT * FROM evenement WHERE id = :id";
 
         try {
             $query = $db->prepare($sql);
@@ -23,7 +22,7 @@ class EvenementController
 
     public function listevenement()
     {
-        $sql = "SELECT * FROM evenements";
+        $sql = "SELECT * FROM evenement where statut ='actif' AND nombreParticipants > 0";
         $db = config::getConnection();
 
         try {
@@ -35,7 +34,7 @@ class EvenementController
 
     public function deleteevenement($id)
     {
-        $sql = "DELETE FROM evenements WHERE id = :id";
+        $sql = "DELETE FROM evenement WHERE id = :id";
         $db = config::getConnection();
 
         try {
@@ -47,47 +46,44 @@ class EvenementController
         }
     }
 
-    public function addevenement($evenement)
-    {
+    public function addevenement(Evenement $evenement) {
+        $query = "INSERT INTO Evenement (titre, description, date_debut, date_fin, nombreParticipants, statut, image)
+                  VALUES (:titre, :description, :date_debut, :date_fin, :nombreParticipants, :statut, :image)";
         $db = config::getConnection();
 
-        $sql = "INSERT INTO evenements (titre, date_debut, date_fin, nombre_participants, statut) 
-                VALUES (:titre, :date_debut, :date_fin, :nombre_participants, :statut)";
-
-        try {
-            $query = $db->prepare($sql);
-            $query->execute([
-                ':titre' => $evenement->getTitre(),
-                ':date_debut' => $evenement->getDate_debut(),
-                ':date_fin' => $evenement->getDate_fin(),
-                ':nombre_participants' => $evenement->getNbparticipants(),
-                ':statut' => $evenement->getStatut(),
-            ]);
-        } catch (PDOException $e) {
-            die("Error while adding event: " . $e->getMessage());
-        }
+        $stmt = $db->prepare($query);
+    
+        $stmt->bindValue(':titre', $evenement->getTitre());
+        $stmt->bindValue(':description', $evenement->getDescription());
+        $stmt->bindValue(':date_debut', $evenement->getDate_debut());
+        $stmt->bindValue(':date_fin', $evenement->getDate_fin());
+        $stmt->bindValue(':nombreParticipants', $evenement->getNbparticipants());
+        $stmt->bindValue(':statut', $evenement->getStatut());
+        $stmt->bindValue(':image', $evenement->getImage());
+    
+        $stmt->execute();
     }
+    
 
-    public function updateevenement($evenement)
-    {
+    public function updateEvenement($evenement) {
+        $query = "UPDATE Evenement 
+                  SET titre = :titre, description = :description, date_debut = :date_debut, date_fin = :date_fin, 
+                      statut = :statut, nombreParticipants = :nombreParticipants, image = :image 
+                  WHERE id = :id";
         $db = config::getConnection();
-        $sql = "UPDATE evenements 
-                SET titre = :titre, date_debut = :date_debut, date_fin = :date_fin, statut = :statut, nombre_participants = :nombre_participants 
-                WHERE id = :id";
 
-        try {
-            $query = $db->prepare($sql);
-            $query->execute([
-                ':id' => $evenement->getId(),
-                ':titre' => $evenement->getTitre(),
-                ':date_debut' => $evenement->getDate_debut(),
-                ':date_fin' => $evenement->getDate_fin(),
-                ':nombre_participants' => $evenement->getNbparticipants(),
-                ':statut' => $evenement->getStatut(),
-            ]);
-        } catch (PDOException $e) {
-            die("Error: " . $e->getMessage());
-        }
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            ':titre' => $evenement->getTitre(),
+            ':description' => $evenement->getDescription(),
+            ':date_debut' => $evenement->getDate_debut(),
+            ':date_fin' => $evenement->getDate_fin(),
+            ':statut' => $evenement->getStatut(),
+            ':nombreParticipants' => $evenement->getNbparticipants(),
+            ':image' => $evenement->getImage(),
+            ':id' => $evenement->getId(),
+        ]);
     }
+    
 }
 ?>
